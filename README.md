@@ -71,7 +71,7 @@ This approach (**supervised algorithm**) is based on the idea described at *Bidi
 
 ### Dictionary
 
-A quick comparison show us the we are not detecting all the entities that we should be identify. On the one hand, I am not getting "false entities" (only around $2\%$) which it is pretty good. On the other hand, I only find around 27\% entities (very low).
+A quick comparison show us the we are not detecting all the entities that we should be identify. On the one hand, I am not getting "false entities" (only around 2\%) which it is pretty good. On the other hand, I only find around 27\% entities (very low).
 
 It is not a really bad result for such small dictionary `diseases.txt`.
 
@@ -91,4 +91,4 @@ From my point of view, the results are nice: I barely get any false positive, th
 
 I would like to implement the idea described at http://www.cogprints.org/5025/1/NRC-48727.pdf
 
-Also, there are some tips to build regular expressions using the information from health organizations, for example: https://apps.who.int/iris/bitstream/handle/10665/163636/WHO_HSE_FOS_15.1_eng.pdf
+Also, using the information from health organizations, there are some tips to build regular expressions, for example: https://apps.who.int/iris/bitstream/handle/10665/163636/WHO_HSE_FOS_15.1_eng.pdf
