@@ -1,0 +1,15 @@
+version: '3.6'
+
+services:
+    python:
+        container_name: python_${PROJECT_USER}
+        build:
+            context: ./misc/dockerfiles/python
+            dockerfile: Dockerfile
+        env_file:
+            - .env
+        volumes:
+            - ./data:/App/data
+            - ./code:/App/code
+            - ./misc:/App/misc
+            - ./artifacts:/App/artifacts

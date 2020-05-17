@@ -1,0 +1,316 @@
+ADHD
+ASD
+Abdominal aortic aneurysm
+Acne
+Acute cholecystitis
+Acute lymphoblastic leukaemia
+Acute myeloid leukaemia
+Acute pancreatitis
+Addison disease
+Alcohol-related liver disease
+Allergic rhinitis
+Allergies
+Alzheimer disease
+Anal cancer
+Anaphylaxis
+Angioedema
+Ankylosing spondylitis
+Anorexia nervosa
+Anxiety
+Appendicitis
+Arthritis
+Asbestosis
+Asthma
+Atopic eczema
+Attention deficit hyperactivity disorder
+Autism
+Autistic
+Bacterial vaginosis
+Benign prostate enlargement
+Bile duct cancer
+Binge eating
+Bipolar disorder
+Bladder cancer
+Blood poisoning
+Bone cancer
+Bowel cancer
+Bowel incontinence
+Bowel polyps
+Brain stem death
+Brain tumours
+Breast cancer
+Bronchiectasis
+Bronchitis
+Bulimia
+Bunion
+COVID-19
+Cancer
+Cancers
+Carcinoid syndrome and carcinoid tumours
+Catarrh
+Cellulitis
+Cervical cancer
+Chest infection
+Chest pain
+Chickenpox
+Chilblains
+Chronic fatigue syndrome
+Chronic kidney disease
+Chronic lymphocytic leukaemia
+Chronic myeloid leukaemia
+Chronic obstructive pulmonary disease
+Chronic pancreatitis
+Cirrhosis
+Clostridium difficile
+Coeliac disease
+Cold sore
+Coma
+Common cold
+Common heart conditions
+Congenital heart disease
+Conjunctivitis
+Constipation
+Coronavirus
+Cough
+Crohn disease
+Croup
+Cystic fibrosis
+Cystitis
+Deafblindness
+Deep vein thrombosis
+Deficiency anaemia
+Dehydration
+Dementia
+Dementia with Lewy bodies
+Dental abscess
+Depression
+Dermatitis herpetiformis
+Diabetes
+Diarrhoea
+Discoid eczema
+disease
+disorder
+disorders
+Diverticular disease and diverticulitis
+Dizziness
+Down syndrome
+Dry mouth
+Dysphagia
+Dystonia
+E. coli
+Earache
+Earwax build-up
+Ebola virus disease
+Ectopic pregnancy
+Endometriosis
+Epilepsy
+Erectile dysfunction
+Escherichia coli
+Ewing sarcoma
+Febrile seizures
+Fever
+Fibroids
+Fibromyalgia
+Flatulence
+Flu
+Foetal alcohol syndrome
+Food poisoning
+Fungal nail infection
+GORD
+Gallbladder cancer
+Gallstones
+Ganglion cyst
+Gastro-oesophageal reflux disease
+Gastroenteritis
+Genital herpes
+Genital warts
+Germ cell tumours
+Glandular fever
+Gout
+Gum disease
+HIV
+Haemorrhoids
+Hairy cell leukaemia
+Hand, foot and mouth disease
+Hay fever
+Head and neck cancer
+Head lice and nits
+Headaches
+Hearing loss
+Heart failure
+Hepatitis
+Hiatus hernia
+cholesterol
+Hodgkin lymphoma
+Huntington disease
+Hyperglycaemia
+Hyperhidrosis
+Hypoglycaemia
+IBS
+Idiopathic pulmonary fibrosis
+Impetigo
+Indigestion
+Infection
+Infections
+Ingrown toenail
+Inherited heart conditions
+Insomnia
+Irritable bowel syndrome
+Irritable hip
+Itching
+Itchy bottom
+Kaposi sarcoma
+Kidney cancer
+Kidney stones
+Labyrinthitis
+Lactose intolerance
+Langerhans cell histiocytosis
+Laryngeal
+Laryngitis
+Lichen planus
+Lightheadedness
+Lung cancer
+Lupus
+Lyme disease
+Lymphoedema
+MND
+MS
+Malaria
+Malignant brain tumour
+Malnutrition
+Measles
+Meniere disease
+Meningitis
+Menopause
+Mesothelioma
+Migraine
+Miscarriage
+Motor neurone disease
+Mouth cancer
+Mouth ulcer
+Multiple myeloma
+Multiple sclerosis
+Mumps
+NAFLD
+Nasal and sinus cancer
+Nasopharyngeal cancer
+Neuroblastoma
+Neuroendocrine tumours
+Non-Hodgkin lymphoma
+Non-alcoholic fatty liver disease
+Norovirus
+Nosebleed
+OCD
+Obesity
+Obsessive compulsive disorder
+Obstructive sleep apnoea
+Oesophageal cancer
+Oral thrush
+Osteoarthritis
+Osteoporosis
+Osteosarcoma
+Otitis externa
+Ovarian cancer
+Ovarian cyst
+Overactive thyroid
+PTSD
+Paget disease of the nipple
+Pancreatic cancer
+Panic disorder
+Parkinson disease
+Pelvic organ prolapse
+Penile cancer
+Peripheral neuropathy
+Personality disorder
+Pleurisy
+Pneumonia
+Polymyalgia rheumatica
+Post-traumatic stress disorder
+Postnatal depression
+Pressure ulcers
+Prostate cancer
+Psoriasis
+Psoriatic arthritis
+Psychosis
+Rare tumours
+Raynaud phenomenon
+Reactive arthritis
+Restless legs syndrome
+Retinoblastoma
+Rhabdomyosarcoma
+Rheumatoid arthritis
+Rosacea
+SIDS
+STIs
+Scabies
+Scarlet fever
+Schizophrenia
+Scoliosis
+Septic shock
+Sexual infections
+Shingles
+Sickle cell disease
+Sinusitis
+Sjogren syndrome
+Skin cancer
+Slapped cheek syndrome
+Soft tissue sarcomas
+Sore throat
+Spleen problem
+Stillbirth
+Stomach ache and abdominal pain
+Stomach cancer
+Stomach ulcer
+Stress
+Stroke
+Sudden infant death syndrome
+Suicide
+Sunburn
+Swollen glands
+TB
+TIA
+Testicular cancer
+Thirst
+Threadworms
+Thrush
+Thyroid cancer
+Tinnitus
+Tonsillitis
+Tooth decay
+Toothache
+Transient ischaemic attack
+Trigeminal neuralgia
+Tuberculosis
+tumour
+tumours
+tumor
+tumors
+UTI
+ulcer
+Ulcerative colitis
+Underactive thyroid
+Urticaria
+vaginal cancer
+vaginal thrush
+Varicose eczema
+Varicose veins
+Venous leg ulcer
+Vertigo
+Vomiting
+Vulval cancer
+Warts and verrucas
+Whooping cough
+Wilms tumour
+Womb
+Yellow fever
+cancerous
+cholangiocarcinoma
+hives
+larynx
+melanoma
+non-melanoma
+otitis media
+piles
+sepsis
+swallowing problems
+uterus

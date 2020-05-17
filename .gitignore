@@ -1,0 +1,7 @@
+.DS_Store
+._*
+.ipynb_checkpoints
+
+__pycache__/
+artifacts/*
+data/parsed/
