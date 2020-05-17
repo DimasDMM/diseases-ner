@@ -71,7 +71,7 @@ This approach (**supervised algorithm**) is based on the idea described at *Bidi
 
 ### Dictionary
 
-A quick comparison show us the we are not detecting all the entities that we should be identify. On the one hand, I am not getting "false entities" (only around $2\%$) which it is pretty good. On the other hand, I only find around $27\%$ entities (very low).
+A quick comparison show us the we are not detecting all the entities that we should be identify. On the one hand, I am not getting "false entities" (only around $2\%$) which it is pretty good. On the other hand, I only find around 27\% entities (very low).
 
 It is not a really bad result for such small dictionary `diseases.txt`.
 
@@ -81,7 +81,7 @@ It is not a really bad result for such small dictionary `diseases.txt`.
 
 ### LSTM-CRF
 
-From my point of view, the results are nice: I do not get any false positive, thus I do not identify "false entities" in the text. However, I should keep working on my model to detect all the entities, since there are $34\%$ of them that I am not identifying correctly.
+From my point of view, the results are nice: I barely get any false positive, thus I do not identify "false entities" in the text. However, I should keep working on my model to detect all the entities, since there are 20\% of them that I am not identifying correctly.
 
 <p align="center">
   <img src="./doc/result-ner-lstm-crf.png">
