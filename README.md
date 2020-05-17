@@ -55,13 +55,17 @@ This is a naive approach (**unsupervised algorithm**) of NER using a fixed list 
 
 A simlar approch is creating a list of Regular Expression for a particular language. Obviously, a person must create those patterns, so it can be hard to maintain a big list of patterns.
 
-![](./doc/ner-dictionary-rules.png)
+<p align="center">
+  <img src="./doc/ner-dictionary-rules.png">
+</p>
 
 ### LSTM-CRF
 
 This approach (**supervised algorithm**) is based on the idea described at *Bidirectional LSTM-CRF Models for Sequence Tagging* by Zhiheng Huang et al.: https://arxiv.org/abs/1508.01991.
 
-![](./doc/ner-lstm-crf.png)
+<p align="center">
+  <img src="./doc/ner-lstm-crf.png">
+</p>
 
 ## Results
 
@@ -71,13 +75,17 @@ A quick comparison show us the we are not detecting all the entities that we sho
 
 It is not a really bad result for such small dictionary `diseases.txt`.
 
-![](./doc/result-ner-dictionary-rules.png)
+<p align="center">
+  <img src="./doc/result-ner-dictionary-rules.png">
+</p>
 
 ### LSTM-CRF
 
 From my point of view, the results are nice: I do not get any false positive, thus I do not identify "false entities" in the text. However, I should keep working on my model to detect all the entities, since there are $34\%$ of them that I am not identifying correctly.
 
-![](./doc/result-ner-lstm-crf.png)
+<p align="center">
+  <img src="./doc/result-ner-lstm-crf.png">
+</p>
 
 ## Future work
 
