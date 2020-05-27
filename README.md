@@ -69,8 +69,11 @@ This approach (**supervised algorithm**) is based on the idea described at *Bidi
 ## Results
 
 I evaluated the performance of each algorithm using the Jaccard Index.
-- Dictionary: -Pending-
+- Dictionary: 0.1369
 - LSTM-CRF with PoS: 0.8154
+
+Notes:
+- I did not optimize the hyperparameters of the algorithms, so you may obtain better results if you do that.
 
 ## Future work
 
