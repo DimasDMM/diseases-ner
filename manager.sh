@@ -13,9 +13,6 @@ case $1 in
   python)
     ${MANAGER_DIR}/misc/bin/python-container.sh
     ;;
-  init)
-    ${MANAGER_DIR}/misc/bin/python-container.sh init
-    ;;
   scrapper)
     ${MANAGER_DIR}/misc/bin/python-container.sh scrapper
     ;;

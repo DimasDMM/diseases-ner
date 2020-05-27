@@ -1,71 +1,51 @@
 import numpy as np
-import re
-import string
-
-from spacy.lang.en.stop_words import STOP_WORDS as STOP_WORDS_SET
-
 from .ModelBase import ModelBase
 
 class DictionaryModel(ModelBase):
-    def __init__(self, file_manager, nlp_tool):
-        super().__init__(file_manager, nlp_tool)
+    def __init__(self, file_manager):
+        super().__init__(file_manager)
 
-        diseases = self._file_manager.getDiseasesDictionary()
-        diseases = self._nlp_tool.tokenize_texts(diseases)
-        self._tok_diseases = [[d[0] for d in disease] for disease in diseases]
+    def build_dictionary(self, tokenized_dict_diseases):
+        self.tokenized_dict_diseases = tokenized_dict_diseases
 
-    def get_maxbin_dataset(self, tokenized_dataset):
-        ignored_tokens = list(STOP_WORDS_SET) + list(string.punctuation)
-
-        special_separators = re.compile(r'^[0-9_\-\\/]+$')
-
-        bin_entities_per_text = []
-
-        for tokens in tokenized_dataset:
-            len_tokens = len(tokens)
-
-            bin_entities = np.zeros(len_tokens, dtype=int)
-
-            # Find diseases coincidences
-            for index, token in enumerate(tokens):
-                if token in ignored_tokens or special_separators.match(token):
-                    # Ignore certain tokens
-                    continue
-
-                for disease_tokens in self._tok_diseases:
-                    if token in disease_tokens:
-                        bin_entities[index] = 1
-                        break
-
-            # Given a token with matches as a disease, if the next token is a "certain separator", then add it
-            # as a coincidence as well as the next token to the separator. Idem. with previous tokens.
-
-            # Forward
-            for i in range(2, len_tokens):
-                if special_separators.match(tokens[i - 1]) and bin_entities[i - 2] == 1:
-                    bin_entities[i - 1] = 1
-                    bin_entities[i] = 1
-
-            # Backwards
-            for i in range(len_tokens - 2):
-                if special_separators.match(tokens[i + 1]) and bin_entities[i + 2] == 1:
-                    bin_entities[i + 1] = 1
-                    bin_entities[i] = 1
-
-            bin_entities_per_text.append(bin_entities)
+    def find_entities(self, tok_dataset, jaccard_fn, min_score=0.7):
+        entities_per_text = []
+        indicators_per_text = []
         
-        return bin_entities_per_text
+        for text in tok_dataset:
+            text_len = len(text)
+            t_entities = []
+            t_indicator = []
+            
+            i = 0
+            while i < text_len:
+                entity_found = False
+                
+                for entity in self.tokenized_dict_diseases:
+                    entity_len = len(entity)
+                    score = 0
+                    
+                    if entity_len + i > text_len:
+                        # The entity cannot fit in the tokenized words
+                        continue
 
-    def get_entities(self, text):
-        # Put the previous text inside of a list
-        texts = list([text])
-
-        # Tokenize it and get PoS tags
-        nlp_text = self._nlp_tool.tokenize_texts(texts)[0]
+                    k = 0
+                    while k < entity_len:
+                        score = score + jaccard_fn(entity[k][2].text, text[i + k][2].text)
+                        k = k + 1
+                    
+                    score = score / entity_len
+                    if score >= min_score:
+                        entity_found = True
+                        t_entities.append(text[i:i+k])
+                        t_indicator = t_indicator + [1]*k
+                        i = i + k
+                
+                if not entity_found:
+                    t_indicator.append(0)
+                    i = i + 1
+            
+            entities_per_text.append(np.array(t_entities))
+            indicators_per_text.append(np.array(t_indicator))
         
-        tok_text = list([[w[0] for w in nlp_text]])
-        pred_bin_text = self.get_maxbin_dataset(tok_text)[0]
-        
-        pred_str_entities = self.bin_pred_to_str(nlp_text, pred_bin_text)
-        
-        return pred_str_entities
+        return np.array(entities_per_text), np.array(indicators_per_text)

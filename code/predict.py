@@ -3,40 +3,58 @@ import numpy as np
 import os
 import sys
 
-from keras.utils import to_categorical
-import tensorflow as tf
-
 from lib.FileManager import FileManager
-from lib.NlpTool import NlpTool
+from lib.DataProcess import DataProcess
+from lib.Jaccard import Jaccard
 from lib.ModelFactory import ModelFactory
 from lib.LstmCrfModel import LstmCrfModel
 from lib.DictionaryModel import DictionaryModel
 
-EPOCHS = 5
-
 def run(logging, model_name, text):
     file_manager = FileManager()
-    nlp_tool = NlpTool()
+    jaccard = Jaccard()
+    data_process = DataProcess(jaccard)
 
     # Create the desired model and train it
-    model_factory = ModelFactory(file_manager, nlp_tool)
+    model_factory = ModelFactory(file_manager)
     model_manager = model_factory.make(model_name)
+    
+    dataset = [text]
+    tok_dataset = data_process.tokenize_texts(dataset)
 
     if isinstance(model_manager, LstmCrfModel):
         # Model: LSTM-CRF
-        logging.info('Loading model and keras tokenizers...')
+        logging.info('Loading model and vocabularies...')
 
-        word_tokenizer, pos_tokenizer = model_manager.load_tokenizers(model_name)
+        (_, word2id, _), (_, pos2id, _) = model_manager.load_vocabularies(model_name)
         
-        model = model_manager.create_model(word_tokenizer, pos_tokenizer, NlpTool.MAX_SEQUENCE_LENGTH)
-        model = model_manager.load_model_weights(model_name, model)
-
+        logging.info('Encoding text...')
+        words = data_process.get_texts_words(tok_dataset)
+        pos = data_process.get_texts_pos(tok_dataset)
+        
+        words_enc = data_process.encode_texts(words, word2id)
+        pos_enc = data_process.encode_texts(pos, pos2id)
+        
+        words_enc = data_process.to_sequences(words_enc, DataProcess.MAX_SEQUENCE_LENGTH)
+        pos_enc = data_process.to_sequences(pos_enc, DataProcess.MAX_SEQUENCE_LENGTH)
+        
+        logging.info('Loading model...')
+        model = model_manager.load_model(model_name, model)
+        
         logging.info('Finding entities...')
-        entities = model_manager.get_entities(text, model, word_tokenizer, pos_tokenizer)
+        pred_indicators = model_manager.make_bin_prediction(model, words_enc, pos_enc)
+        entities = data_process.bin_to_str(tok_dataset, pred_indicators)
+        
     elif isinstance(model_manager, DictionaryModel):
         # Model: Dictionary
+        logging.info('Loading dictionary...')
+        diseases = file_manager.get_diseases_dictionary()
+        diseases = data_process.tokenize_texts(diseases)
+        model_manager.build_dictionary(diseases)
+        
         logging.info('Finding entities...')
-        entities = model_manager.get_entities(text)
+        _, pred_indicators = model_manager.find_entities(tok_dataset, jaccard.word_jaccard)
+        entities = data_process.bin_to_str(tok_dataset, pred_indicators)
     else:
         pass # ... Add other models here
     

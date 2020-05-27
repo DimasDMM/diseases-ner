@@ -5,6 +5,5 @@
 __pycache__/
 artifacts/*
 
-data/parsed/
 data/NCBI_corpus_testing.txt
 data/NCBI_corpus_training.txt
