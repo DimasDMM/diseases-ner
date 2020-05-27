@@ -18,7 +18,9 @@ Also, you may need to install additional components, such as the vocabulary used
 
 The NCBI Disease Corpus: The NCBI disease corpus is fully annotated at the mention and concept level to serve as a research resource for the biomedical natural language processing community. Source: https://www.ncbi.nlm.nih.gov/CBBresearch/Dogan/DISEASE/
 
-**Important:** Download the mentioned dataset and place the files `NCBI_corpus_training.txt` and `NCBI_corpus_testing.txt` in the folder `./data`. Once you put the files there, you are ready to run the commands described below.
+**Note 1:** Download the mentioned dataset and place the files `NCBI_corpus_training.txt` and `NCBI_corpus_testing.txt` in the folder `./data`. Once you put the files there, you are ready to run the commands described below.
+
+**Note 2:** In order to use the notebook with GloVe, first you need to download the file `glove.840B.300d.txt` from https://nlp.stanford.edu/projects/glove/. Then, place the file in the folder `./data`.
 
 ## Commands
 
@@ -68,9 +70,10 @@ This approach (**supervised algorithm**) is based on the idea described at *Bidi
 
 ## Results
 
-I evaluated the performance of each algorithm using the Jaccard Index.
+I evaluated the performance of each algorithm using the Jaccard Index:
 - Dictionary: 0.1369
 - LSTM-CRF with PoS: 0.8154
+- LSTM-CRF with PoS and GloVe: **0.8435**
 
 Notes:
 - I did not optimize the hyperparameters of the algorithms, so you may obtain better results if you do that.
@@ -80,5 +83,4 @@ Notes:
 - I would like to implement the idea described at http://www.cogprints.org/5025/1/NRC-48727.pdf
 - Using the information from health organizations, there are some tips to build regular expressions, for example: https://apps.who.int/iris/bitstream/handle/10665/163636/WHO_HSE_FOS_15.1_eng.pdf
 - Apply K-Folds to training of LSTM-CRF.
-- Use GloVe embeddings to improve performance.
 - Code organization

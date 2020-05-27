@@ -7,3 +7,4 @@ artifacts/*
 
 data/NCBI_corpus_testing.txt
 data/NCBI_corpus_training.txt
+data/glove.840B.300d.txt
