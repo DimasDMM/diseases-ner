@@ -11,8 +11,8 @@ from keras_contrib.losses import crf_loss
 from .ModelBase import ModelBase
 
 class LstmCrfModel(ModelBase):
-    WORD_VOCAB = 'word_tokenizer'
-    POS_VOCAB = 'pos_tokenizer'
+    WORD_VOCAB = 'word_vocab'
+    POS_VOCAB = 'pos_vocab'
     
     def create_model(self, vocab_words_size, vocab_pos_size, sequence_length, model_params=None):
         if model_params is None:
