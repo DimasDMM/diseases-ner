@@ -1,6 +1,5 @@
 import os
 import pickle
-import keras
 
 class FileManager:
     DATA_PATH = '../../data/'
@@ -29,12 +28,12 @@ class FileManager:
         
         return train_dataset, test_dataset
 
-    def load_model(self, model_name, model):
+    def load_model_weights(self, model_name, model):
         model_path = self._get_model_path(model_name)
-        keras.models.load_model(model_path + 'model.h5')
+        model.load_weights(model_path + 'model.h5')
         return model
     
-    def save_model(self, model_name, model):
+    def save_model_weights(self, model_name, model):
         model_path = self._get_model_path(model_name)
         self._create_model_path(model_name)
 

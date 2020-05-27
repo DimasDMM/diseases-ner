@@ -26,24 +26,25 @@ def run(logging, model_name, text):
         # Model: LSTM-CRF
         logging.info('Loading model and vocabularies...')
 
-        (_, word2id, _), (_, pos2id, _) = model_manager.load_vocabularies(model_name)
+        (_, word2id, vocab_words_size), (_, pos2id, vocab_pos_size) = model_manager.load_vocabularies(model_name)
         
         logging.info('Encoding text...')
         words = data_process.get_texts_words(tok_dataset)
         pos = data_process.get_texts_pos(tok_dataset)
-        
+
         words_enc = data_process.encode_texts(words, word2id)
         pos_enc = data_process.encode_texts(pos, pos2id)
-        
+
         words_enc = data_process.to_sequences(words_enc, DataProcess.MAX_SEQUENCE_LENGTH)
         pos_enc = data_process.to_sequences(pos_enc, DataProcess.MAX_SEQUENCE_LENGTH)
         
         logging.info('Loading model...')
-        model = model_manager.load_model(model_name, model)
+        model = model_manager.create_model(vocab_words_size, vocab_pos_size, DataProcess.MAX_SEQUENCE_LENGTH)
+        model_manager.load_model_weights(model_name, model)
         
         logging.info('Finding entities...')
         pred_indicators = model_manager.make_bin_prediction(model, words_enc, pos_enc)
-        entities = data_process.bin_to_str(tok_dataset, pred_indicators)
+        entities = data_process.bin_to_str(tok_dataset, pred_indicators)      
         
     elif isinstance(model_manager, DictionaryModel):
         # Model: Dictionary

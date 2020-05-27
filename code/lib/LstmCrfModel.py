@@ -64,11 +64,11 @@ class LstmCrfModel(ModelBase):
         
         return model
     
-    def load_model(self, model_name, model):
-        return self._file_manager.load_model(model_name, model)
+    def load_model_weights(self, model_name, model):
+        self._file_manager.load_model_weights(model_name, model)
     
-    def save_model(self, model_name, model):
-        self._file_manager.save_model(model_name, model)
+    def save_model_weights(self, model_name, model):
+        self._file_manager.save_model_weights(model_name, model)
     
     def load_vocabularies(self, model_name):
         word_vocab = self._file_manager.load_vocabulary(model_name, self.WORD_VOCAB)
@@ -108,7 +108,7 @@ class LstmCrfModel(ModelBase):
     def _get_default_params(self):
         model_params = {
             'embedding_dim': 100,
-            'lstm_cells': 50,
+            'lstm_cells': 128,
             'word_lstm_dropout': 0.3,
             'word_lstm_rec_dropout': 0.3,
             'pos_lstm_dropout': 0.3,
