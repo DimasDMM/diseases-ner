@@ -83,4 +83,5 @@ Notes:
 - I would like to implement the idea described at http://www.cogprints.org/5025/1/NRC-48727.pdf
 - Using the information from health organizations, there are some tips to build regular expressions, for example: https://apps.who.int/iris/bitstream/handle/10665/163636/WHO_HSE_FOS_15.1_eng.pdf
 - Apply K-Folds to training of LSTM-CRF.
+- Implement BERT model.
 - Code organization
